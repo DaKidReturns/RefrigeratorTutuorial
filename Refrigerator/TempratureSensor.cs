@@ -47,6 +47,7 @@ namespace Refrigerator
                 e.SetPoint = SetPoint;
                 e.Temperature = Temperature;
                 TemperatureChanged(this, e);
+                Console.WriteLine($"Temperature changed: {value}");
             }
         }
 

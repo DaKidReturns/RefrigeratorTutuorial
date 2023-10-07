@@ -23,7 +23,7 @@ namespace Refrigerator
         public Environment() {
             incrementer = 0;
             value = 30;
-            new Thread(()=> { value += incrementer; Thread.Sleep(100); }).Start();
+            new Thread(()=> { value += incrementer; Thread.Sleep(1); }).Start();
         }
 
         private void changeIncrement(double val)
@@ -32,6 +32,7 @@ namespace Refrigerator
             {
                 incrementer += val;
             }
+            Console.WriteLine(incrementer);
         }
         /// <summary>
         /// To be execueted whent the door open or closes.
@@ -50,6 +51,7 @@ namespace Refrigerator
         public void CompressorEvent(object sender, CompressorStateChangeEventArgs e) {
             if (e.status == Status.ON)
             {
+                Console.WriteLine("Compressor is on");
                 changeIncrement(-0.1);
             }
             else if (e.status == Status.OFF) { 
